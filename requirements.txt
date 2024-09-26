@@ -5,6 +5,7 @@ click==8.1.7
 colorama==0.4.6
 dj-database-url==2.2.0
 Django==4.2.16
+django-bootstrap5==24.3
 django-debug-toolbar==4.4.6
 gunicorn==23.0.0
 h11==0.14.0
