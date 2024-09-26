@@ -1,0 +1,118 @@
+{% extends "master.html" %}
+
+{% block title %}
+PoS
+{% endblock %}
+
+
+{% block content %}
+<style>
+  input[type='button'] {
+    margin-bottom: 3px;
+  }
+</style>
+<div class="container">
+  <h1>Pos</h1>
+  <div class="row">
+    <div class="col-md-10 ms-auto">
+      <div class="row g-3">
+        <div class="col-md-8">
+          <input type="text" class="form-control" placeholder="Scan barcode" aria-label="Scan barcode" id="tbInput">
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-primary">Add</button>
+        </div>
+        <div class="row">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Item</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Syrup - Monin - Passion Fruit</td>
+                <td><input type="number" class="form-control" step="1" placeholder="Qnt" aria-label="Quantity"
+                    style="width: 100px;"></td>
+                <td>40,000</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Syrup - Monin - Passion Fruit</td>
+                <td><input type="number" class="form-control" step="1" placeholder="Qnt" aria-label="Quantity"
+                    style="width: 100px;"></td>
+                <td>40,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-3 offset-md-9">
+            <h6>Total: 40,000</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3 offset-md-9">
+            <h6>Deposite: 100,000</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3 offset-md-9">
+            <h6>Change: 60,000</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 ms-auto" id="VirtualKey">
+      <input id="btn1" class="btn btn-outline-primary btn-lg" type="button" onclick="input(this);" />
+      <input id="btn2" class="btn btn-outline-primary btn-lg" type="button" onclick="input(this);" />
+      <input id="btn3" class="btn btn-outline-primary btn-lg" type="button" onclick="input(this);" />
+      <br />
+      <input id="btn4" class="btn btn-outline-primary btn-lg" type="button" onclick="input(this);" />
+      <input id="btn5" class="btn btn-outline-primary btn-lg" type="button" onclick="input(this);" />
+      <input id="btn6" class="btn btn-outline-primary btn-lg" type="button" onclick="input(this);" />
+      <br />
+      <input id="btn7" class="btn btn-outline-primary btn-lg" type="button" onclick="input(this);" />
+      <input id="btn8" class="btn btn-outline-primary btn-lg" type="button" onclick="input(this);" />
+      <input id="btn9" class="btn btn-outline-primary btn-lg" type="button" onclick="input(this);" />
+      <br />
+      <input id="btn0" class="btn btn-outline-primary btn-lg" type="button" onclick="input(this)" />
+      <input id="btnDel" class="btn btn-secondary btn-lg" type="button" value="d" onclick="del();" />
+      <input id="btnEnter" class="btn btn-secondary btn-lg" type="button" value="E"  />
+    </div>
+  </div>
+
+</div>
+<script>
+  function input(e) {
+    console.log(e.value);
+
+    var tbInput = document.getElementById("tbInput");
+    tbInput.value = tbInput.value + e.value;
+
+    console.log(tbInput);
+
+  }
+
+  function del() {
+    var tbInput = document.getElementById("tbInput");
+    tbInput.value = tbInput.value.substr(0, tbInput.value.length - 1);
+  }
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+    var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,]
+
+    for (i = 0; i < 10; i++) {
+      var btn = document.getElementById("btn" + i);
+      btn.value = array[i];
+    }
+
+    var tbInput = document.getElementById("tbInput");
+  });
+</script>
+{% endblock %}
