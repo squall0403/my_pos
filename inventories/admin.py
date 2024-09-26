@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Inventory, UnitName,Category
 # Register your models here.
 class InventoryAdmin(admin.ModelAdmin):
-  list_display = ("item_name", "unit_price","category","supplier")
+  list_display = ("item_name", "unit_price","category","unit")
   prepopulated_fields = {"slug": ("item_name","item_name")}
 
 class UnitAdmin(admin.ModelAdmin):

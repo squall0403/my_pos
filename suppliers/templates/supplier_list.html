@@ -1,0 +1,42 @@
+{% extends "master.html" %}
+{% load l10n %}
+{% block title %}
+Supllier list
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1>Supllier List</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Code</th>
+        <th scope="col">Contact name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+        <th scope="col">District</th>
+        <th scope="col">City</th>
+        <th scope="col">Country code</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for x in suppliers|dictsort:"name" %}
+      <tr>
+        <td><a href="{% url 'suppliers:detail' x.slug %}">{{ x.name }}</a></td>
+        <td>{{x.code}}</td>
+        <td>{{x.contact_name}}</td>
+        <td>{{x.email}}</td>
+        <td>{{x.phone}}</td>
+        <td>{{x.address}}</td>
+        <td>{{x.district}}</td>
+        <td>{{x.city}}</td>
+        <td>{{x.country_code}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

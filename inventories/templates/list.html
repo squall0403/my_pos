@@ -11,9 +11,8 @@ Inventory list
     <thead>
       <tr>
         <th scope="col">Item name</th>
-        <th scope="col">SKU</th>
-        <th scope="col">Unit</th>
-        <th scope="col">Unit price</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
         <th scope="col">Supplier</th>
       </tr>
     </thead>
@@ -21,10 +20,9 @@ Inventory list
       {% for x in inventories|dictsort:"item_name" %}
       <tr>
         <td><a href='detail/{{ x.slug }}'>{{ x.item_name }}</a></td>
-        <td>{{ x.sku }}</td>
-        <td>{{ x.unit }}</td>
-        <td style="text-align: left;">{{ x.unit_price|localize }}</td>
-        <td>{{ x.supplier }}</td>
+        <td>{{ x.category }}</td>
+        <td style="text-align: left;">{{ x.unit_price|localize }} ({{x.unit}})</td>
+        <!-- <td>{{ x.supplier }}</td> --><td><a href="{% url 'suppliers:detail' x.supplier.slug %}">{{ x.supplier }}</a></td>
       </tr>
       {% endfor %}
     </tbody>

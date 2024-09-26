@@ -15,7 +15,9 @@ class Inventory(models.Model):
 
     class Meta:
         verbose_name_plural = "inventories"
-
+    def __iter__(self):
+            for field_name in ['sku', 'item_name','category','supplier','unit','unit_price']:
+                yield field_name, getattr(self, field_name)
     def __str__(self):
         return f"{self.item_name}"
 

@@ -1,0 +1,46 @@
+{% extends "master.html" %}
+{% load custom_filter %}
+{% block title %}
+Detail - {{ supplier.name }}
+{% endblock %}
+
+{% block content %}
+<style>
+ .inventory-list {
+  border-right: 1px solid var(--bs-border-color);
+ }
+
+ .form-label {
+  text-transform: capitalize;
+ }
+</style>
+<div class="container">
+ <div class="row">
+  <div class="col-md-3 inventory-list">
+   <br>
+   <h5 class="text-center">All item</h5>
+   <hr>
+   <ul class="list-group list-group-flush">
+    {% for x in suppliers|dictsort:"name" %}
+    <a href="{{x.slug}}"
+     class="{% if supplier.slug == x.slug %}active{% endif %} list-group-item list-group-item-action">{{x.name}}</a>
+    {% endfor %}
+   </ul>
+  </div>
+  <div class="col-md-9">
+   <br>
+   <h5 class="text-center">Item detail</h5>
+   <hr>
+   <form>
+    {% for key, value in supplier %}
+    <div class="mb-3">
+     <label for="item_name" class="form-label">{{key|replace_underscores }}</label>
+     <input type="text" class="form-control" id="item_name" value="{{value}}" readonly>
+    </div>
+    {% endfor %}
+    <a class="btn btn-primary" href="{% url 'suppliers:suppliers' %}">Back to Suppliers</a>
+   </form>
+  </div>
+ </div>
+</div>
+{% endblock %}
