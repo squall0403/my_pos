@@ -6,6 +6,10 @@ set -o errexit
 pip install -r requirements.txt
 python manage.py collectstatic --no-input
 
-python manage.py makemigrations
+python manage.py makemigrations inventories
+python manage.py makemigrations suppliers
+python manage.py makemigrations sales
+python manage.py makemigrations storage
+
 # Apply any outstanding database migrations
 python manage.py migrate
