@@ -8,6 +8,10 @@ a {
   text-align: center;
 }
 
+.text-right {
+  text-align: right !important;
+}
+
 table {
   &.table-striped {
     tr {
@@ -29,9 +33,10 @@ table {
 
   tbody {
     tr {
-      &:hover{
+      &:hover {
         background-color: var(--color-primary-hover);
       }
+
       td {
         &:first-child {
           padding-left: .5em;

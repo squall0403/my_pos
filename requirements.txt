@@ -5,7 +5,7 @@ black==24.8.0
 click==8.1.7
 colorama==0.4.6
 dj-database-url==2.2.0
-Django==4.2.16
+Django==5.1.1
 django-admin-csvexport==2.2
 django-appconf==1.0.6
 django-compressor==4.5.1

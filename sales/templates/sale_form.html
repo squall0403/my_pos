@@ -1,0 +1,38 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="column column-60">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Unit</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Sub-total</th>
+                    </tr>
+                </thead>
+                <tbody>{% for s in sales %}
+                    <tr>
+                        <td>{{s.sale_item}}</td>
+                        <td>{{s.sale_item.unit}}</td>
+                        <td style="text-align: center;"><strong>{{s.quantity}}</strong></td>
+                        <td>{{s.sale_item.unit_price}}</td>
+                        <td><strong>{{s.sub_total_price}}</strong></td>
+                    </tr>{% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="column column-40">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="button is-success is-fullwidth is-medium mt-5" type="submit">Create
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
