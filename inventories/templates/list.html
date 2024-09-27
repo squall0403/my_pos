@@ -3,7 +3,6 @@
 {% block title %}
 Inventory list
 {% endblock %}
-
 {% block content %}
 <div class="container">
   <h1>Inventory List</h1>
@@ -22,7 +21,7 @@ Inventory list
         <td><a href='detail/{{ x.slug }}'>{{ x.item_name }}</a></td>
         <td>{{ x.category }}</td>
         <td style="text-align: left;">{{ x.unit_price|localize }} ({{x.unit}})</td>
-        <!-- <td>{{ x.supplier }}</td> --><td><a href="{% url 'suppliers:detail' x.supplier.slug %}">{{ x.supplier }}</a></td>
+        <td><a href="{% url 'suppliers:detail' x.supplier.slug %}">{{ x.supplier }}</a></td>
       </tr>
       {% endfor %}
     </tbody>
