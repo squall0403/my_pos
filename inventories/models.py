@@ -11,6 +11,7 @@ class Inventory(models.Model):
     )
     unit = models.ForeignKey("UnitName", null=True, on_delete=models.SET_NULL)
     unit_price = models.IntegerField(null=False, default=0)
+    expired_day = models.IntegerField(blank=True, default=1)
     slug = models.SlugField(default="", null=False)
 
     class Meta:

@@ -1,12 +1,13 @@
-{% load django_bootstrap5 %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+  <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
   <title>{% block title %}{% endblock %}</title>
-  {% bootstrap_css %}
-  {% bootstrap_javascript %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="stylesheet" href="{% static 'milligram.min.css' %}">
   <link rel="stylesheet" href="{% static 'my_pos.css' %}">
 </head>
 

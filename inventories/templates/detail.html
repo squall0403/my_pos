@@ -1,4 +1,5 @@
 {% extends "master.html" %}
+
 {% load custom_filter %}
 {% block title %}
 Detail - {{ inventory.item_name }}
@@ -6,29 +7,25 @@ Detail - {{ inventory.item_name }}
 
 {% block content %}
 <style>
-  .inventory-list {
-    border-right: 1px solid var(--bs-border-color);
-  }
-
   .form-label {
     text-transform: capitalize;
   }
 </style>
 <div class="container">
   <div class="row">
-    <div class="col-md-3 inventory-list">
+    <div class="column column-20 inventory-list">
       <br>
       <h5 class="text-center">All item</h5>
       <hr>
       <ul class="list-group list-group-flush">
         {% for x in inventories|dictsort:"item_name" %}
-
-        <a href="{{x.slug}}"
-          class="{% if inventory.slug == x.slug %}active{% endif %} list-group-item list-group-item-action">{{x.item_name}}</a>
+        <li class="{% if inventory.slug == x.slug %}active{% endif %}"><a href="{{x.slug}}"
+            class=" list-group-item list-group-item-action">{{x.item_name}}</a>
+        </li>
         {% endfor %}
       </ul>
     </div>
-    <div class="col-md-9">
+    <div class="column column-80">
       <br>
       <h5 class="text-center">Item detail</h5>
       <hr>
@@ -39,7 +36,7 @@ Detail - {{ inventory.item_name }}
           <input type="text" class="form-control" id="item_name" value="{{value}}" readonly>
         </div>
         {% endfor %}
-        <a class="btn btn-primary" href="{% url 'inventories:inventories' %}">Back to Inventories</a>
+        <a class="button button-outline" href="{% url 'inventories:inventories' %}"><span class="pln">Back to Inventories</span></a>
       </form>
     </div>
   </div>
