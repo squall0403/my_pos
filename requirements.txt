@@ -1,3 +1,4 @@
+anytree==2.12.1
 asgiref==3.8.1
 beautifulsoup4==4.12.3
 black==24.8.0
@@ -5,10 +6,12 @@ click==8.1.7
 colorama==0.4.6
 dj-database-url==2.2.0
 Django==4.2.16
+django-admin-csvexport==2.2
 django-appconf==1.0.6
 django-compressor==4.5.1
 django-debug-toolbar==4.4.6
 django-libsass==0.9
+django-modeltree==0.5
 gunicorn==23.0.0
 h11==0.14.0
 libsass==0.23.0
@@ -19,6 +22,7 @@ platformdirs==4.3.6
 psycopg2-binary==2.9.9
 rcssmin==1.1.2
 rjsmin==1.2.2
+six==1.16.0
 soupsieve==2.6
 sqlparse==0.5.1
 typing_extensions==4.12.2
